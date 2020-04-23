@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Favortite Fruits</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-center">Favorite Fruits</h1>
+    
+    <div class = "text-center">
+    <p id="directions-text"> Press any letter to start playing!</p>
+  </div>
+
+    <p id="blankspaces"></p>
+    <p id="userchoice-text"></p>
+    <p class="float-right"> Losses: <span id='mistakes'>0</span> of <span id="maxWrong"></span> </p>
+    <p class="text-center"></p>
+    <p id="wins-text"></p>
+    <p id="losses-text"></p>
+    <div id="keyboard"></div>
+
+    <h1 class="text-center" id="wordSpotlight"></h1>
+
+
+
+      <div class= "text-center">
+
+          <button class="btn btn-outline-warning" onClick="reset()">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    </footer>
+
+  </div>
+  <div id="change"></div>
+
+  <script type="text/javascript">
+    // Creates an array that lists out all of the options of every lettter.
+    var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    var names = [
+      "apple",
+      "orange",
+      "banana",
+    ]
+
+    var answer = '';
+    var guessed = [];
+    var maxWrong = 10;
+    var wordStatus = null;
+
+
+    // // Maybe might not need this
+    //     var possibleword = names[math.floor(math.random() * word.length)];
+    //     document.getElementById("userchooice-text").innderHTML -possibleWord;
+
+    //     // Space out possibleword
+    //     var originalLength = possibleword.length;
+    //     for (i = 0; i < originalLength; i++) {
+    //         	possibleWord = [possibleWord.slice(0, i*2+1), ' ', possibleWord.slice(i*2+1)].join('');
+    //         }
+
+    // // Creating blank spaces when guessing the word
+
+    // var blankSpaces = names.length;
+    // console.log("The name length is" + Object.keys(names[1]));
+
+
+
+    // Creating variables to hold the number of wins, losses, and ties. They start at 0.
+    var wins = 0;
+    var losses = 0;
+    var maxwrong = 6;
+
+
+    // Create variables that hold references to the places in the HTML where we want to display things.
+    var directionsText = document.getElementById("directions-text");
+    var blankSpaces = document.getElementById("blankspaces");
+    var userChoiceText = document.getElementById("userchoice-text");
+    var computerChoiceText = document.getElementById("computerchoice-text");
+    var winsText = document.getElementById("wins-text");
+    var lossesText = document.getElementById("losses-text");
+    var tiesText = document.getElementById("ties-text");
+
+    // Function creating a random word
+    function randomWord() {
+      answer = names[Math.floor(Math.random() * names.length)];
+
+    }
+
+    function generateUserChooices() {
+
+    }
+    // Function that creates blank spaces of the random
+    function guessedWord() {
+      wordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
+      document.getElementById("wordSpotlight").innerHTML = wordStatus;
+    }
+
+    document.getElementById("maxWrong").innerHTML = maxWrong;
+
+    randomWord();
+    guessedWord();
+
+
+
+    // This function is run whenever the user presses a key. Keys show up on screen. The event happens in the body.
+    document.body.onkeyup = function (event) {
+      document.getElementById("change").innerHTML += String.fromCharCode(event.keyCode);
+
+      // Determines which key was pressed.
+      var userGuess = event.key;
+
+      // Randomly chooses a choice from the options array. This is the Computer's guess.
+      // var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+
+      // Reworked our code from last step to use "else if" instead of lots of if statements.
+      // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
+      if (userGuess === "a") {
+        console.log(alphabet[0]);
+
+      }
+      if (userGuess === "b") {
+        console.log(alphabet[1]);
+      }
+      if (userGuess === "c") {
+        console.log(alphabet[2]);
+      }
+      if (userGuess === "d") {
+        console.log(alphabet[3]);
+      }
+      if (userGuess === "e") {
+        console.log(alphabet[4]);
+      }
+      if (userGuess === "f") {
+        console.log(alphabet[5]);
+      }
+      if (userGuess === "g") {
+        console.log(alphabet[6]);
+      }
+      if (userGuess === "h") {
+        console.log(alphabet[7]);
+      }
+      if (userGuess === "i") {
+        console.log(alphabet[8]);
+      }
+      if (userGuess === "j") {
+        console.log(alphabet[9]);
+      }
+      if (userGuess === "k") {
+        console.log(alphabet[10]);
+      }
+      if (userGuess === "l") {
+        console.log(alphabet[11]);
+      }
+      if (userGuess === "m") {
+        console.log(alphabet[12]);
+      }
+      if (userGuess === "n") {
+        console.log(alphabet[13]);
+      }
+      if (userGuess === "o") {
+        console.log(alphabet[14]);
+      }
+      if (userGuess === "p") {
+        console.log(alphabet[15]);
+      }
+      if (userGuess === "q") {
+        console.log(alphabet[16]);
+      }
+      if (userGuess === "r") {
+        console.log(alphabet[17]);
+      }
+      if (userGuess === "s") {
+        console.log(alphabet[18]);
+      }
+      if (userGuess === "t") {
+        console.log(alphabet[19]);
+      }
+      if (userGuess === "u") {
+        console.log(alphabet[20]);
+      }
+      if (userGuess === "v") {
+        console.log(alphabet[21]);
+      }
+      if (userGuess === "w") {
+        console.log(alphabet[22]);
+      }
+      if (userGuess === "x") {
+        console.log(alphabet[23]);
+      }
+      if (userGuess === "y") {
+        console.log(alphabet[24]);
+      }
+      if (userGuess === "z") {
+        console.log(alphabet[25]);
+
+
+        // } || (userGuess === "p") || (userGuess === "s")) {
+        //   if ((userGuess === "r" && computerGuess === "s") ||
+        //     (userGuess === "s" && computerGuess === "p") ||
+        //     (userGuess === "p" && computerGuess === "r")) {
+        //     wins++;
+        //   } else if (userGuess === computerGuess) {
+        //     ties++;
+        //   } else {
+        //     losses++;
+
+        // Hide the directions
+        directionsText.textContent = "";
+        // Display the user and computer guesses, and wins/losses/ties.
+        userChoiceText.textContent = "You chose: " + userGuess;
+        computerChoiceText.textContent = "The computer chose: " + computerGuess;
+        winsText.textContent = "wins: " + wins;
+        lossesText.textContent = "losses: " + losses;
+        tiesText.textContent = "ties: " + ties;
+      }
+
+      // Makes letters appear based on the key the user pressed (userGuess).
+
+      // document.write(userGuess);
+
+
+
+    };
+  </script>
+</body>
+
+</html>
